@@ -5,6 +5,7 @@ metadata:
   namespace: projects
   annotations:
     cnrm.cloud.google.com/auto-create-network: "false"
+    cnrm.cloud.google.com/blueprint: cnrm/landing-zone:project/v0.4.3,kpt-pkg-fn
 spec:
   name: prod-project-name # kpt-set: prod-${project-id}-${unique-id}
   resourceID: prod-project-id # kpt-set: prod-${project-id}-${unique-id}
