@@ -14,3 +14,37 @@ spec:
   folderRef:
     name: folder-name # kpt-set: ${folder-name}-folder
     namespace: hierarchy
+---
+apiVersion: resourcemanager.cnrm.cloud.google.com/v1beta1
+kind: Project
+metadata:
+  name: stag-project-name # kpt-set: stag-${project-id}-${unique-id}-project
+  namespace: projects
+  annotations:
+    cnrm.cloud.google.com/auto-create-network: "false"
+    cnrm.cloud.google.com/blueprint: cnrm/landing-zone:project/v0.4.3,kpt-pkg-fn
+spec:
+  name: stag-project-name # kpt-set: stag-${project-id}-${unique-id}
+  resourceID: stag-project-id # kpt-set: stag-${project-id}-${unique-id}
+  billingAccountRef:
+    external: "AAAAAA-BBBBBB-CCCCCC" # kpt-set: ${billing-account-id}
+  folderRef:
+    name: folder-name # kpt-set: ${folder-name}-folder
+    namespace: hierarchy
+---
+apiVersion: resourcemanager.cnrm.cloud.google.com/v1beta1
+kind: Project
+metadata:
+  name: dev-project-name # kpt-set: dev-${project-id}-${unique-id}-project
+  namespace: projects
+  annotations:
+    cnrm.cloud.google.com/auto-create-network: "false"
+    cnrm.cloud.google.com/blueprint: cnrm/landing-zone:project/v0.4.3,kpt-pkg-fn
+spec:
+  name: dev-project-name # kpt-set: dev-${project-id}-${unique-id}
+  resourceID: dev-project-id # kpt-set: dev-${project-id}-${unique-id}
+  billingAccountRef:
+    external: "AAAAAA-BBBBBB-CCCCCC" # kpt-set: ${billing-account-id}
+  folderRef:
+    name: folder-name # kpt-set: ${folder-name}-folder
+    namespace: hierarchy
